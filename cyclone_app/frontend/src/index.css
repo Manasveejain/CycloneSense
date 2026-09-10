@@ -1,0 +1,37 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --surface2:  #1f2937;
+  --surface3:  #263040;
+  --border:    #30363d;
+  --accent:    #2563eb;
+  --accent-h:  #3b82f6;
+  --red:       #ef4444;
+  --orange:    #f97316;
+  --yellow:    #eab308;
+  --green:     #22c55e;
+  --teal:      #14b8a6;
+  --purple:    #a855f7;
+  --text:      #e6edf3;
+  --muted:     #8b949e;
+  --radius:    10px;
+  --shadow:    0 4px 24px rgba(0,0,0,.45);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Leaflet z-index fix */
+.leaflet-pane, .leaflet-tile, .leaflet-marker-icon { z-index: 1 !important; }
+.leaflet-top, .leaflet-bottom { z-index: 2 !important; }
