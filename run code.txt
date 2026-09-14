@@ -1,9 +1,44 @@
-run code :
+================================================================================
+CYCLONESENSE: END-TO-END PREDICTION & ALERT SYSTEM
+================================================================================
+
+HOW TO RUN BACKEND & FRONTEND:
+
+--------------------------------------------------------------------------------
+1. START THE FASTAPI BACKEND (Terminal 1):
+--------------------------------------------------------------------------------
+Open PowerShell or Command Prompt:
 
 cd "c:\Users\jainv\Downloads\MY Model"
 .\venv\Scripts\Activate.ps1
 cd cyclone_app\backend
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+* The backend API will be available at: http://localhost:8000
+* Interactive Swagger Docs: http://localhost:8000/docs
+
+
+--------------------------------------------------------------------------------
+2. START THE REACT FRONTEND (Terminal 2):
+--------------------------------------------------------------------------------
+Open a second PowerShell or Command Prompt terminal:
 
 cd "c:\Users\jainv\Downloads\MY Model\cyclone_app\frontend"
 npm run dev
+
+* The unified GUI dashboard will launch at: http://localhost:5173
+  (Open http://localhost:5173 in your web browser)
+
+================================================================================
+SYSTEM CAPABILITIES IN THE UNIFIED GUI:
+================================================================================
+- Storm Selector: Choose from historical Indian Ocean benchmarks (Cyclone Fani,
+  Amphan, Biparjoy, Tauktae, Michaung) or upload any custom satellite image.
+- Satellite Perception Viewer: Multi-spectral visualization across Infrared (IR),
+  Water Vapor (WV), Visible (VIS), and Microwave (PMW) bands with Eye tracking.
+- Module 1 (CNN): Real-time storm intensity & IMD classification (knots, km/h).
+- Module 2 (GRU/LSTM): Autoregressive trajectory forecasting with uncertainty cones.
+- Module 3 (GIS): Multi-criteria coastal risk classification (Red, Orange, Yellow).
+- Module 4 (XGBoost): Economic damage estimation ($M and INR Crores).
+- Module 5 (CAP Alerts): Common Alerting Protocol emergency broadcast dispatch.
+================================================================================
