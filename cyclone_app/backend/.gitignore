@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.idea/
+.vscode/
+models/*.joblib
+models/*.pkl
+!models/.gitkeep
