@@ -1,146 +1,502 @@
 # 🌪️ CycloneSense
 
-### AI-Powered End-to-End Cyclone Prediction, Risk Assessment & Alert System
+### AI-Powered Cyclone Track Forecasting, Intensity Estimation, Risk Assessment, Economic Loss Modeling & Multilingual Alerts
 
-CycloneSense is an end-to-end AI/ML and geospatial decision-support system designed to assist with tropical cyclone monitoring and disaster preparedness.
+CycloneSense is an end-to-end AI/ML-based cyclone decision-support system that combines **track forecasting, cyclone intensity estimation, spatial risk assessment, economic loss modeling, and multilingual emergency alerts** into a unified workflow.
 
-The system combines satellite-image analysis, cyclone intensity estimation, trajectory forecasting, coastal risk assessment, economic damage estimation, and emergency alert generation into a unified dashboard.
-
-> **Project goal:** Transform raw cyclone and satellite observations into actionable information for disaster-management workflows.
+The system is designed to transform historical cyclone observations and satellite imagery into actionable information for cyclone monitoring, preparedness, and disaster-response planning.
 
 ---
 
-## 🚀 Key Capabilities
+## 🚀 Key Features
 
-CycloneSense is organized as a multi-module pipeline:
-
-| Module | Purpose | Technology / Approach |
-|---|---|---|
-| **Module 1** | Cyclone intensity estimation and IMD classification | Deep-learning image model |
-| **Module 2** | Infrared-based intensity estimation | ResNet-18 / deep-learning regression |
-| **Module 3** | Cyclone trajectory forecasting | GRU/LSTM-based time-series forecasting |
-| **Module 4** | Coastal risk assessment | GIS + multi-criteria risk analysis |
-| **Module 5** | Economic damage estimation | XGBoost-based regression |
-| **Module 6** | Emergency communication | CAP-style alert generation and dispatch |
-
-The unified dashboard also supports historical cyclone scenarios and custom satellite-image input.
+- 🌪️ **Multi-step cyclone track forecasting**
+- 💨 **Cyclone wind-speed and pressure forecasting**
+- 🛰️ **Infrared satellite-based intensity estimation**
+- 🧠 **Machine-learning cyclone category classification**
+- 🗺️ **Fuzzy-AHP spatial risk assessment**
+- 🏠 **Population and building vulnerability modeling**
+- 💰 **Sector-wise economic loss estimation**
+- 🎲 **Monte Carlo uncertainty analysis**
+- 🚨 **Dynamic emergency alert generation**
+- 🌐 **Multilingual alerts in 7 Indian languages**
+- 📊 **Unified decision-support workflow**
 
 ---
 
-## 🧠 System Workflow
+# 🧠 System Architecture
 
 ```text
-                    ┌─────────────────────────┐
-                    │  Satellite / Cyclone    │
-                    │        Data             │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │ Satellite Perception    │
-                    │ IR / WV / VIS / PMW     │
-                    └────────────┬────────────┘
-                                 │
-                ┌────────────────┴────────────────┐
-                ▼                                 ▼
-       ┌──────────────────┐             ┌──────────────────┐
-       │ Intensity Model  │             │ Track Forecast   │
-       │ CNN / ResNet     │             │ GRU / LSTM       │
-       └────────┬─────────┘             └────────┬─────────┘
-                │                                │
-                ▼                                ▼
-       ┌──────────────────┐             ┌──────────────────┐
-       │ IMD Classification│            │ Uncertainty Cone │
-       └────────┬─────────┘             └────────┬─────────┘
-                │                                │
-                └──────────────┬─────────────────┘
+                  ┌────────────────────────────┐
+                  │ Historical Cyclone Data   │
+                  │ Satellite IR Observations │
+                  └─────────────┬──────────────┘
+                                │
+              ┌─────────────────┴─────────────────┐
+              │                                   │
+              ▼                                   ▼
+     ┌──────────────────┐                ┌──────────────────┐
+     │    MODULE 1      │                │    MODULE 2      │
+     │ Track & Intensity│                │ IR Intensity     │
+     │ Forecasting      │                │ Estimation       │
+     │ GBR + RF +       │                │ ResNet18IR       │
+     │ CLIPER           │                │                  │
+     └────────┬─────────┘                └────────┬─────────┘
+              │                                   │
+              └────────────────┬──────────────────┘
                                ▼
-                    ┌─────────────────────────┐
-                    │ Coastal Risk Assessment │
-                    │       GIS Module        │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │ Economic Damage Model   │
-                    │        XGBoost          │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │ Emergency Alert System  │
-                    │       CAP Alerts        │
-                    └─────────────────────────┘
+                    ┌─────────────────────┐
+                    │ Cyclone Forecast &  │
+                    │ Intensity Estimates │
+                    └──────────┬──────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+                 ▼                           ▼
+        ┌──────────────────┐        ┌──────────────────┐
+        │    MODULE 3      │        │    MODULE 4      │
+        │ Risk Assessment  │        │ Economic Loss    │
+        │ Fuzzy-AHP +      │        │ Holland Wind     │
+        │ Spatial Model    │        │ + Monte Carlo    │
+        └────────┬─────────┘        └────────┬─────────┘
+                 │                           │
+                 └─────────────┬─────────────┘
+                               ▼
+                    ┌─────────────────────┐
+                    │    MODULE 5         │
+                    │ Multilingual Alert  │
+                    │ Generation          │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Emergency / Public  │
+                    │ Communication       │
+                    └─────────────────────┘
 ```
 
 ---
 
-## ✨ Features
+# 🌪️ Module 1: Cyclone Track & Intensity Forecasting
 
-### 🛰️ Multi-Spectral Satellite Analysis
+Module 1 uses machine-learning models to forecast cyclone movement, intensity, and storm category at multiple future lead times.
 
-CycloneSense supports analysis of multiple satellite observation channels:
+## 1. Gradient Boosting Regressor (GBR)
 
-- Infrared (IR)
-- Water Vapor (WV)
-- Visible (VIS)
-- Passive Microwave (PMW)
+The Gradient Boosting Regressor performs **multi-step forecasting** for cyclone track displacement and intensity-related variables.
 
-These observations can be used to analyze cyclone structure, intensity, and evolution.
+### Configuration
 
-### 🌪️ Cyclone Intensity Estimation
+| Parameter | Value |
+|---|---:|
+| Estimators | 150 |
+| Learning Rate | 0.03 |
+| Maximum Depth | 3 |
+| Subsample | 0.8 |
 
-The system estimates cyclone intensity from satellite observations and maps the prediction to cyclone categories used by the India Meteorological Department (IMD).
+### Forecast Targets
 
-Outputs can include:
+The model predicts four quantities at five forecast lead times:
 
-- Maximum sustained wind speed
-- Wind speed in knots / km/h
-- Cyclone intensity category
-- Model confidence / prediction information
+| Target | Unit | Lead Times |
+|---|---|---|
+| Distance displacement | km | 6, 12, 18, 24, 30 h |
+| Heading | radians | 6, 12, 18, 24, 30 h |
+| Wind speed | knots | 6, 12, 18, 24, 30 h |
+| Pressure | hPa | 6, 12, 18, 24, 30 h |
 
-### 📍 Trajectory Forecasting
-
-Historical cyclone observations are processed as time-series data to forecast future cyclone positions.
-
-The forecasting module provides:
-
-- Future latitude
-- Future longitude
-- Multiple lead-time predictions
-- Forecast trajectory
-- Uncertainty / prediction cone visualization
-
-### 🗺️ GIS-Based Coastal Risk Assessment
-
-The GIS module combines relevant geographic and cyclone-related factors to classify coastal risk.
-
-Example risk levels:
-
-- 🔴 Red
-- 🟠 Orange
-- 🟡 Yellow
-
-This helps translate meteorological predictions into geographically meaningful risk information.
-
-### 💰 Economic Damage Estimation
-
-An XGBoost-based model estimates potential economic damage using cyclone and affected-area information.
-
-Results can be displayed in:
-
-- USD millions
-- INR crores
-
-> Damage estimates are model outputs and should be treated as decision-support information rather than official loss assessments.
-
-### 🚨 Emergency Alerts
-
-CycloneSense includes a Common Alerting Protocol (CAP)-style emergency communication workflow intended to structure cyclone warnings for downstream dissemination.
+This produces a multi-step representation of both cyclone movement and intensity evolution.
 
 ---
 
-## 🗂️ Repository Structure
+## 2. Random Forest Classifier
+
+A Random Forest classifier predicts the cyclone's storm status/intensity category.
+
+### Configuration
+
+- **Estimators:** 200
+- **Maximum depth:** 12
+- **Class weighting:** Enabled to address imbalanced cyclone categories
+
+The classifier predicts IMD cyclone categories ranging from:
+
+```text
+Low Pressure Area
+        ↓
+Depression
+        ↓
+Deep Depression
+        ↓
+Cyclonic Storm
+        ↓
+Severe Cyclonic Storm
+        ↓
+Very Severe Cyclonic Storm
+        ↓
+Extremely Severe Cyclonic Storm
+        ↓
+Super Cyclonic Storm
+```
+
+---
+
+## 3. Stratified Group K-Fold Cross-Validation
+
+The forecasting pipeline uses **Stratified Group K-Fold Cross-Validation** to reduce data leakage.
+
+### Grouping
+
+Cyclone **track IDs** are used as groups.
+
+This prevents observations belonging to the same cyclone track from being split between training and validation folds.
+
+### Stratification
+
+The folds are stratified according to wind/intensity categories to maintain a balanced distribution of storm categories.
+
+This is particularly important for cyclone datasets because consecutive observations from the same storm are strongly correlated.
+
+---
+
+## 4. CLIPER Baseline
+
+CycloneSense includes a CLIPER-style baseline as a benchmark for track displacement forecasting.
+
+The baseline uses:
+
+```text
+50% Persistence
+       +
+50% Climatology
+```
+
+The baseline produces a single-step displacement forecast that can be used as a reference for evaluating the ML-based forecasting approach.
+
+---
+
+# 🛰️ Module 2: Infrared Satellite Intensity Estimation
+
+Module 2 estimates cyclone **maximum sustained wind speed (Vmax)** directly from thermal infrared satellite imagery.
+
+## ResNet18IR
+
+The model used in this module is `ResNet18IR`, a modified version of the standard ResNet-18 architecture.
+
+### Base Architecture
+
+The model uses a pretrained ResNet-18 convolutional neural network as its feature-extraction backbone.
+
+Standard ResNet-18 expects a three-channel RGB image:
+
+```text
+RGB → 3 channels
+```
+
+CycloneSense modifies the first convolutional layer to accept a single thermal infrared channel:
+
+```text
+Thermal IR → 1 channel
+```
+
+The pretrained three-channel convolution weights are converted to single-channel weights by averaging the original channel weights.
+
+---
+
+## Regression Head
+
+The original ResNet-18 classification head is replaced with a custom regression head:
+
+```text
+ResNet-18 Feature Extractor
+          ↓
+Linear
+512 → 128
+          ↓
+ReLU
+          ↓
+Dropout
+p = 0.2
+          ↓
+Linear
+128 → 1
+          ↓
+Predicted Vmax
+```
+
+The final layer has no activation function because the model performs continuous regression.
+
+### Output
+
+```text
+Maximum Sustained Wind Speed (Vmax)
+Unit: knots
+```
+
+Thus, the module transforms single-channel thermal infrared satellite imagery into a quantitative estimate of cyclone intensity.
+
+---
+
+# 🗺️ Module 3: Spatial Risk Assessment
+
+Module 3 converts cyclone hazards, population exposure, and infrastructure vulnerability into a spatial risk representation.
+
+## 5. Fuzzy-AHP
+
+CycloneSense uses **Fuzzy Analytical Hierarchy Process (Fuzzy-AHP)** for multi-criteria decision analysis and risk weighting.
+
+Four criteria are incorporated:
+
+1. Wind hazard
+2. Storm-surge hazard
+3. Population exposure
+4. Building vulnerability
+
+Fuzzy-AHP generates normalized weights that are used to integrate hazard and vulnerability information.
+
+---
+
+## 6. Hazard × Vulnerability × Consequence Model
+
+The spatial risk model operates on a:
+
+```text
+160 × 200
+```
+
+grid covering:
+
+```text
+Latitude:  8°N – 24°N
+Longitude: 60°E – 100°E
+```
+
+### Spatial Factors
+
+#### 🌬️ Wind Hazard
+
+Wind hazard is modeled using an exponential decay relationship from the cyclone center.
+
+```text
+Cyclone Center
+      ↓
+Maximum Wind Hazard
+      ↓
+Hazard decreases with distance
+```
+
+#### 🌊 Surge Hazard
+
+The model incorporates ocean/coastal exposure to represent potential storm-surge impacts.
+
+#### 👥 Population Exposure
+
+Population density is represented using a gamma-distributed model.
+
+#### 🏢 Building Vulnerability
+
+Building vulnerability is represented using a beta-distributed model.
+
+### Risk Pipeline
+
+```text
+Wind Hazard
+     +
+Surge Hazard
+     +
+Population Exposure
+     +
+Building Vulnerability
+     ↓
+Fuzzy-AHP Weighting
+     ↓
+Spatial Risk Score
+     ↓
+Risk Map
+```
+
+---
+
+# 💰 Module 4: Economic Loss Model
+
+Module 4 estimates potential economic losses caused by cyclone wind exposure.
+
+## Holland Wind Profile Model
+
+The system uses the **Holland Wind Profile Model** to generate a spatial wind field.
+
+The model uses atmospheric pressure and wind relationships to estimate wind speeds around the cyclone center.
+
+```text
+Cyclone Parameters
+        ↓
+Holland Wind Profile
+        ↓
+Spatial Wind Field
+        ↓
+Damage Calculation
+```
+
+---
+
+## Sector-Based Loss Calculation
+
+Economic losses are calculated separately for three major sectors:
+
+### 🏠 Residential Buildings
+
+Estimates potential damage to residential structures exposed to the modeled wind field.
+
+### 🌾 Agricultural Crops
+
+Estimates potential agricultural losses caused by cyclone wind exposure.
+
+### 🏗️ Public Infrastructure
+
+Estimates potential losses to public infrastructure exposed to the modeled hazard.
+
+---
+
+## Monte Carlo Uncertainty Analysis
+
+Cyclone intensity is uncertain, so CycloneSense uses **100 Monte Carlo simulations** by sampling uncertainty in `Vmax`.
+
+The simulations generate probabilistic loss estimates:
+
+```text
+P10 → Lower loss estimate
+P50 → Median loss estimate
+P90 → Upper loss estimate
+```
+
+This allows the system to communicate a range of potential economic outcomes instead of relying on a single deterministic estimate.
+
+---
+
+# 🚨 Module 5: Multilingual Alert System
+
+Module 5 converts cyclone forecasts and predicted severity into structured emergency communication.
+
+## 🌐 Supported Languages
+
+CycloneSense supports seven languages:
+
+| Language |
+|---|
+| 🇬🇧 English |
+| 🇮🇳 Hindi |
+| Bengali |
+| Odia |
+| Tamil |
+| Telugu |
+| Gujarati |
+
+---
+
+## Dynamic Severity Mapping
+
+Alert severity is dynamically mapped using the predicted **hours to impact** and cyclone severity.
+
+```text
+Forecast Information
+        ↓
+Hours to Impact
+        +
+Predicted Intensity
+        ↓
+Severity Mapping
+        ↓
+Alert Generation
+```
+
+This allows alerts to reflect changing urgency as the cyclone approaches.
+
+---
+
+## 📱 Alert Formats
+
+The generated alerts are designed for:
+
+- SMS-style notifications
+- Mobile application notifications
+
+Alerts can also include uncertainty information so that forecast uncertainty is communicated instead of presenting predictions as exact outcomes.
+
+---
+
+# 🔄 Complete End-to-End Workflow
+
+```text
+                 CYCLONE DATA
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+          ▼                       ▼
+   Historical Tracks       Satellite IR Data
+          │                       │
+          ▼                       ▼
+ ┌─────────────────┐     ┌─────────────────┐
+ │    MODULE 1     │     │    MODULE 2     │
+ │ Track & Intensity│    │ IR Intensity    │
+ │ Forecasting     │     │ ResNet18IR      │
+ │                 │     │                 │
+ │ GBR             │     │ Single-channel  │
+ │ Random Forest   │     │ regression      │
+ │ CLIPER          │     │                 │
+ └────────┬────────┘     └────────┬────────┘
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+             Cyclone Forecast
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+          ▼                       ▼
+ ┌─────────────────┐     ┌─────────────────┐
+ │    MODULE 3     │     │    MODULE 4     │
+ │ Risk Assessment │     │ Economic Loss   │
+ │                 │     │                 │
+ │ Fuzzy-AHP       │     │ Holland Profile │
+ │ Spatial Grid    │     │ Sector Loss     │
+ │ Vulnerability   │     │ Monte Carlo     │
+ └────────┬────────┘     └────────┬────────┘
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+              Impact Assessment
+                      │
+                      ▼
+              ┌───────────────┐
+              │   MODULE 5   │
+              │ Multilingual │
+              │ Alerts       │
+              └───────┬───────┘
+                      │
+                      ▼
+             Emergency Communication
+```
+
+---
+
+# 📊 Model Summary
+
+| Module | Model / Method | Primary Output |
+|---|---|---|
+| Module 1 | Gradient Boosting Regressor | Track displacement, heading, wind, pressure |
+| Module 1 | Random Forest Classifier | Cyclone intensity category |
+| Module 1 | Stratified Group K-Fold | Leakage-resistant validation |
+| Module 1 | CLIPER | Baseline displacement forecast |
+| Module 2 | ResNet18IR | Vmax from IR imagery |
+| Module 3 | Fuzzy-AHP | Risk weights |
+| Module 3 | Hazard × Vulnerability × Consequence | Spatial risk |
+| Module 4 | Holland Wind Profile | Spatial wind field |
+| Module 4 | Sector-based loss model | Economic loss |
+| Module 4 | Monte Carlo | P10 / P50 / P90 loss |
+| Module 5 | Template-based generation | Multilingual alerts |
+
+---
+
+# 🗂️ Project Structure
 
 ```text
 CycloneSense/
@@ -163,173 +519,117 @@ CycloneSense/
 └── README.md
 ```
 
-The repository contains both the research/model-development notebooks and the application layer used for the unified dashboard.
+---
+
+# 📚 Data Sources
+
+## IBTrACS
+
+CycloneSense uses **IBTrACS (International Best Track Archive for Climate Stewardship)** for historical tropical cyclone track information.
+
+IBTrACS provides historical best-track observations including variables such as cyclone position, intensity, and pressure.
+
+Official source:
+
+https://www.ncei.noaa.gov/products/international-best-track-archive
 
 ---
 
-## 📊 Data
+## TCIR Dataset
 
-CycloneSense uses cyclone and satellite-related datasets for model development and analysis.
+The infrared intensity module uses the **TCIR (Tropical Cyclone Infrared) dataset** for satellite-based intensity estimation.
 
-### IBTrACS
-
-The repository includes an IBTrACS dataset file:
-
-```text
-IBTrACS.ALL.v04r01.nc
-```
-
-IBTrACS (International Best Track Archive for Climate Stewardship) provides historical tropical-cyclone best-track information.
-
-### TCIR Dataset
-
-The infrared intensity module is designed to work with the TCIR dataset stored as an HDF5 archive.
-
-The processing pipeline includes:
-
-- Lazy loading from HDF5
-- Missing-value handling
-- Per-channel normalization
-- Image resizing
-- Batch-wise data loading
-- Stratified group cross-validation
-- Intensity regression
-
-The IR module uses four input channels and resizes observations to `64 × 64` before model processing.
+The processing pipeline is designed around infrared satellite imagery and supports the ResNet18IR regression architecture.
 
 ---
 
-## 🤖 Machine Learning Pipeline
+# 🛠️ Technology Stack
 
-### Intensity Module
-
-The intensity pipeline uses satellite imagery to estimate maximum sustained wind speed.
-
-The implementation includes:
-
-- Image preprocessing
-- Channel normalization
-- Lazy dataset loading
-- Deep-learning regression
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- R² evaluation
-- Cross-validation
-
-The repository's IR-intensity notebook implements a ResNet-18-based regression approach and also includes a digital Advanced Dvorak Technique (ADT) benchmark.
-
-### Trajectory Module
-
-The trajectory forecasting component uses sequential cyclone observations to predict future positions.
-
-The configured forecasting horizon includes:
-
-```text
-+6 hours
-+12 hours
-+18 hours
-+24 hours
-+30 hours
-```
-
-The dashboard can visualize these predictions as a projected trajectory with an uncertainty region.
-
-### Damage Prediction
-
-The economic-impact module uses XGBoost regression to estimate potential losses based on cyclone and affected-region characteristics.
-
----
-
-## 🛠️ Technology Stack
-
-### Machine Learning
+## Machine Learning
 
 - Python
-- TensorFlow / Keras
-- PyTorch
 - Scikit-learn
+- PyTorch
+- TensorFlow / Keras
 - XGBoost
 - NumPy
 - Pandas
 
-### Scientific & Geospatial Processing
+## Scientific & Geospatial Computing
 
 - Xarray
 - GeoPandas
 - Rasterio
-- HDF5 / h5py
+- h5py
 - Matplotlib
 
-### Backend
+## Backend
 
 - FastAPI
 - Uvicorn
-- Python
 
-### Frontend
+## Frontend
 
 - React
 - Vite
 - JavaScript / TypeScript
 
-### Data
-
-- IBTrACS
-- TCIR satellite imagery dataset
-- Historical cyclone observations
-
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Manasveejain/CycloneSense.git
 cd CycloneSense
 ```
 
-### 2. Create a Python virtual environment
+## 2. Create a Virtual Environment
+
+### Windows
 
 ```bash
 python -m venv venv
-```
-
-#### Windows
-
-```bash
 venv\Scripts\activate
 ```
 
-#### Linux / macOS
+### Linux / macOS
 
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install backend dependencies
+## 3. Install Dependencies
 
-If a `requirements.txt` file is available in the backend directory:
+If the repository contains a `requirements.txt`:
 
 ```bash
-cd cyclone_app/backend
 pip install -r requirements.txt
 ```
 
-If dependencies are being installed manually for the notebooks, the project uses packages including:
+For notebook/model development, the project uses packages including:
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn tensorflow torch torchvision
-pip install xarray geopandas rasterio h5py py7zr joblib xgboost
+pip install numpy pandas matplotlib scikit-learn
+pip install torch torchvision tensorflow
+pip install xarray geopandas rasterio h5py xgboost joblib
 ```
 
 ---
 
-## ▶️ Running the Application
+# ▶️ Running the Application
 
-### Start the FastAPI Backend
+## Backend
 
-From the backend directory:
+Navigate to the backend:
+
+```bash
+cd cyclone_app/backend
+```
+
+Start the FastAPI server:
 
 ```bash
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
@@ -341,15 +641,17 @@ Backend:
 http://localhost:8000
 ```
 
-Interactive API documentation:
+FastAPI documentation:
 
 ```text
 http://localhost:8000/docs
 ```
 
-### Start the React Frontend
+---
 
-Open a second terminal:
+## Frontend
+
+Open another terminal:
 
 ```bash
 cd cyclone_app/frontend
@@ -357,7 +659,7 @@ npm install
 npm run dev
 ```
 
-The dashboard will normally be available at:
+The frontend is typically available at:
 
 ```text
 http://localhost:5173
@@ -365,9 +667,9 @@ http://localhost:5173
 
 ---
 
-## 🧪 Running the Notebooks
+# 🧪 Running the Notebooks
 
-### Main Module
+## Main Module
 
 Open:
 
@@ -375,9 +677,9 @@ Open:
 Main_Module.ipynb
 ```
 
-This notebook contains the primary model-development workflow.
+This notebook contains the primary cyclone forecasting and analysis workflow.
 
-### IR Intensity Module
+## Infrared Intensity Module
 
 Open:
 
@@ -385,153 +687,125 @@ Open:
 02_module2_ir_intensity_.ipynb
 ```
 
-This notebook contains the standalone infrared-intensity pipeline.
-
-The notebook can work with the TCIR archive and stores generated models/artifacts in directories such as:
-
-```text
-models/
-cyclone_artifacts/
-data/processed/
-```
-
-For large datasets, the pipeline is designed to process data in batches rather than loading the entire dataset into memory.
+This notebook contains the ResNet18IR-based infrared intensity estimation pipeline.
 
 ---
 
-## 🌪️ Historical Storm Scenarios
+# 🎯 Project Objectives
 
-The unified GUI includes historical Indian Ocean cyclone examples such as:
+CycloneSense aims to integrate multiple stages of cyclone disaster management into a single AI/ML workflow:
 
-- Cyclone Fani
-- Cyclone Amphan
-- Cyclone Biparjoy
-- Cyclone Tauktae
-- Cyclone Michaung
-
-Users can also provide a custom satellite image for analysis.
-
----
-
-## 📈 Example Output
-
-A typical CycloneSense analysis can produce:
-
-```text
-Cyclone
-   │
-   ├── Current Intensity
-   │      ├── Wind Speed
-   │      └── IMD Category
-   │
-   ├── Forecast Track
-   │      ├── Future Coordinates
-   │      └── Uncertainty Cone
-   │
-   ├── Coastal Risk
-   │      └── Red / Orange / Yellow
-   │
-   ├── Economic Impact
-   │      ├── USD Million
-   │      └── INR Crore
-   │
-   └── Emergency Response
-          └── CAP Alert
-```
+1. Forecast cyclone movement.
+2. Forecast cyclone intensity and pressure.
+3. Estimate cyclone intensity from satellite IR imagery.
+4. Classify cyclone storm categories.
+5. Assess spatial hazard and vulnerability.
+6. Estimate potential sector-wise economic losses.
+7. Quantify uncertainty in economic loss estimates.
+8. Generate multilingual emergency alerts.
+9. Provide decision-support information through a unified system.
 
 ---
 
-## 🎯 Project Objectives
+# 🔮 Future Scope
 
-CycloneSense aims to:
-
-1. Automate parts of cyclone analysis using AI/ML.
-2. Estimate cyclone intensity from satellite observations.
-3. Forecast cyclone movement using temporal models.
-4. Convert meteorological information into coastal risk levels.
-5. Estimate potential economic impact.
-6. Provide structured emergency alerts.
-7. Present multiple outputs through a single decision-support dashboard.
-
----
-
-## 🔮 Future Improvements
-
-Potential future extensions include:
+Potential extensions include:
 
 - Real-time satellite data ingestion
-- Integration with official meteorological APIs
 - Real-time cyclone tracking
-- Multi-cyclone simultaneous tracking
+- Integration with operational meteorological APIs
 - Improved uncertainty quantification
-- Rainfall estimation
-- Flood-risk prediction
-- Population exposure estimation
-- Infrastructure vulnerability modeling
-- Mobile emergency-alert interface
-- Automated multilingual public warnings
+- Flood and rainfall risk modeling
+- Population evacuation planning
+- Infrastructure-specific vulnerability models
+- Real-time alert delivery
+- Additional Indian regional languages
+- Mobile application deployment
 - Edge/offline deployment for low-connectivity regions
+- Improved calibration against historical cyclone damage records
 
 ---
 
-## ⚠️ Limitations & Disclaimer
+# ⚠️ Limitations & Disclaimer
 
-CycloneSense is a research and prototype decision-support system.
+CycloneSense is a research/prototype decision-support system.
 
-Model predictions should **not** replace official warnings or forecasts issued by authorized meteorological and disaster-management agencies.
+Its predictions and risk estimates should **not replace official cyclone forecasts, warnings, or disaster-management instructions** issued by authorized meteorological and government agencies.
 
-Accuracy depends on:
+Model performance can depend on:
 
-- Quality and availability of satellite observations
-- Training-data coverage
-- Model generalization
+- Training-data quality
+- Satellite-image quality
+- Geographic coverage
+- Historical cyclone representation
 - Forecast lead time
-- Geographic region
-- Input-data quality
+- Input-data availability
+- Model assumptions
+- Uncertainty in cyclone intensity and environmental conditions
 
-Economic-loss estimates and risk classifications are model-generated estimates and should be validated against authoritative datasets before operational use.
+Economic loss estimates are model-generated estimates and should be validated against authoritative damage and exposure datasets before operational deployment.
 
 ---
 
-## 📚 References
+# 📚 References
 
-- **IBTrACS — International Best Track Archive for Climate Stewardship**
+- **IBTrACS — International Best Track Archive for Climate Stewardship**  
   https://www.ncei.noaa.gov/products/international-best-track-archive
 
-- **India Meteorological Department (IMD)**
+- **India Meteorological Department (IMD)**  
   https://mausam.imd.gov.in/
 
-- **TensorFlow**
-  https://www.tensorflow.org/
-
-- **PyTorch**
+- **PyTorch**  
   https://pytorch.org/
 
-- **XGBoost**
+- **Scikit-learn**  
+  https://scikit-learn.org/
+
+- **XGBoost**  
   https://xgboost.readthedocs.io/
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Manasvee Jain
-Team : Swastik
-**
+**Manasvi Jain**
 
 GitHub:  
 https://github.com/Manasveejain
 
-Project Repository:  
+Project:  
 https://github.com/Manasveejain/CycloneSense
 
 ---
 
-## ⭐ Acknowledgement
+# ⭐ Project Summary
 
-CycloneSense was developed as an AI/ML-based disaster-management project exploring how satellite data, deep learning, time-series forecasting, geospatial analysis, and automated alerting can be combined into a unified cyclone decision-support system.
+**CycloneSense** brings together:
+
+```text
+Machine Learning
+       +
+Satellite Image Analysis
+       +
+Time-Series Forecasting
+       +
+Geospatial Risk Modeling
+       +
+Economic Impact Modeling
+       +
+Uncertainty Quantification
+       +
+Multilingual Emergency Communication
+```
+
+into a single end-to-end cyclone decision-support framework.
+
+The central objective is to move beyond **"Where will the cyclone go?"** toward a broader question:
+
+> **"What could the cyclone affect, what could the potential impact be, and how can that information be communicated in time?"**
 
 ---
 
-## 📄 License
+# 📄 License
 
-Add the project's intended license here if/when a license is included in the repository.
+Add the project's intended open-source license here if a license is included in the repository.
