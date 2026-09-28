@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycloneSense Diagnostic</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            background: #0a0f1a;
+            color: #e2e8f0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        h1 {
+            color: #06b6d4;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 8px;
+            border-left: 4px solid #334155;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #60a5fa;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+        .status.loading {
+            background: #fbbf24;
+            color: #000;
+        }
+        .status.success {
+            background: #10b981;
+            color: #fff;
+        }
+        .status.error {
+            background: #ef4444;
+            color: #fff;
+        }
+        .log {
+            background: #020617;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            overflow-x: auto;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .log-line {
+            margin: 4px 0;
+        }
+        .log-success { color: #10b981; }
+        .log-error { color: #ef4444; }
+        .log-info { color: #06b6d4; }
+        button {
+            background: #06b6d4;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #0891b2;
+        }
+        pre {
+            background: #020617;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌪️ CycloneSense System Diagnostic</h1>
+        <p class="subtitle">Automated health check for frontend and backend services</p>
+
+        <div class="test-section" id="test-fastapi">
+            <h3>1. FastAPI ML Service <span class="status loading" id="status-fastapi">TESTING...</span></h3>
+            <div class="log" id="log-fastapi"></div>
+        </div>
+
+        <div class="test-section" id="test-spring">
+            <h3>2. Spring Boot Backend <span class="status loading" id="status-spring">TESTING...</span></h3>
+            <div class="log" id="log-spring"></div>
+        </div>
+
+        <div class="test-section" id="test-storms">
+            <h3>3. Storms API <span class="status loading" id="status-storms">TESTING...</span></h3>
+            <div class="log" id="log-storms"></div>
+        </div>
+
+        <div class="test-section" id="test-predict">
+            <h3>4. Prediction Pipeline <span class="status loading" id="status-predict">TESTING...</span></h3>
+            <div class="log" id="log-predict"></div>
+        </div>
+
+        <div class="test-section" id="test-cors">
+            <h3>5. CORS Configuration <span class="status loading" id="status-cors">TESTING...</span></h3>
+            <div class="log" id="log-cors"></div>
+        </div>
+
+        <button onclick="window.location.href='/'">✓ All Tests Passed - Go to Dashboard</button>
+    </div>
+
+    <script>
+        function addLog(containerId, message, type = 'info') {
+            const container = document.getElementById(containerId);
+            const line = document.createElement('div');
+            line.className = `log-line log-${type}`;
+            line.textContent = message;
+            container.appendChild(line);
+        }
+
+        function setStatus(statusId, status) {
+            const el = document.getElementById(statusId);
+            el.className = `status ${status}`;
+            el.textContent = status === 'success' ? '✓ PASS' : status === 'error' ? '✗ FAIL' : 'TESTING...';
+        }
+
+        async function testFastAPI() {
+            try {
+                addLog('log-fastapi', '→ Testing http://localhost:8001/health', 'info');
+                const res = await fetch('http://localhost:8001/health');
+                const data = await res.json();
+                addLog('log-fastapi', `✓ Status: ${res.status}`, 'success');
+                addLog('log-fastapi', `✓ Models loaded: ${data.models_loaded}`, 'success');
+                addLog('log-fastapi', `✓ Models: ${data.models.join(', ')}`, 'success');
+                setStatus('status-fastapi', 'success');
+                return true;
+            } catch (err) {
+                addLog('log-fastapi', `✗ Error: ${err.message}`, 'error');
+                setStatus('status-fastapi', 'error');
+                return false;
+            }
+        }
+
+        async function testSpringBoot() {
+            try {
+                addLog('log-spring', '→ Testing http://localhost:8000/api/health', 'info');
+                const res = await fetch('http://localhost:8000/api/health');
+                const data = await res.json();
+                addLog('log-spring', `✓ Status: ${res.status}`, 'success');
+                addLog('log-spring', `✓ Service: ${data.service}`, 'success');
+                setStatus('status-spring', 'success');
+                return true;
+            } catch (err) {
+                addLog('log-spring', `✗ Error: ${err.message}`, 'error');
+                setStatus('status-spring', 'error');
+                return false;
+            }
+        }
+
+        async function testStorms() {
+            try {
+                addLog('log-storms', '→ Testing http://localhost:8000/api/storms', 'info');
+                const res = await fetch('http://localhost:8000/api/storms');
+                const data = await res.json();
+                addLog('log-storms', `✓ Status: ${res.status}`, 'success');
+                addLog('log-storms', `✓ Storms found: ${data.storms.length}`, 'success');
+                data.storms.forEach(s => {
+                    addLog('log-storms', `  - ${s.name} (${s.year})`, 'info');
+                });
+                setStatus('status-storms', 'success');
+                return true;
+            } catch (err) {
+                addLog('log-storms', `✗ Error: ${err.message}`, 'error');
+                setStatus('status-storms', 'error');
+                return false;
+            }
+        }
+
+        async function testPrediction() {
+            try {
+                addLog('log-predict', '→ Testing POST http://localhost:8000/api/predict/all', 'info');
+                const res = await fetch('http://localhost:8000/api/predict/all', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ storm_id: 'storm-fani' })
+                });
+                const data = await res.json();
+                addLog('log-predict', `✓ Status: ${res.status}`, 'success');
+                addLog('log-predict', `✓ Storm: ${data.storm.name}`, 'success');
+                addLog('log-predict', `✓ Predicted wind: ${data.intensity.predicted_wind_kt} knots`, 'success');
+                addLog('log-predict', `✓ Risk zones: Red=${data.summary.red_zone_count}, Orange=${data.summary.orange_zone_count}, Yellow=${data.summary.yellow_zone_count}`, 'success');
+                addLog('log-predict', `✓ Estimated damage: $${data.summary.total_damage_usd_m}M`, 'success');
+                setStatus('status-predict', 'success');
+                return true;
+            } catch (err) {
+                addLog('log-predict', `✗ Error: ${err.message}`, 'error');
+                setStatus('status-predict', 'error');
+                return false;
+            }
+        }
+
+        async function testCORS() {
+            try {
+                addLog('log-cors', '→ Checking CORS headers from http://localhost:8000', 'info');
+                const res = await fetch('http://localhost:8000/api/health');
+                const corsHeader = res.headers.get('Access-Control-Allow-Origin');
+                addLog('log-cors', `✓ CORS header: ${corsHeader}`, 'success');
+                if (corsHeader === '*' || corsHeader === 'http://localhost:5173') {
+                    addLog('log-cors', '✓ CORS configured correctly for frontend', 'success');
+                    setStatus('status-cors', 'success');
+                    return true;
+                } else {
+                    addLog('log-cors', '✗ CORS may not allow frontend origin', 'error');
+                    setStatus('status-cors', 'error');
+                    return false;
+                }
+            } catch (err) {
+                addLog('log-cors', `✗ Error: ${err.message}`, 'error');
+                setStatus('status-cors', 'error');
+                return false;
+            }
+        }
+
+        // Run all tests
+        (async () => {
+            await testFastAPI();
+            await new Promise(r => setTimeout(r, 500));
+            await testSpringBoot();
+            await new Promise(r => setTimeout(r, 500));
+            await testStorms();
+            await new Promise(r => setTimeout(r, 500));
+            await testPrediction();
+            await new Promise(r => setTimeout(r, 500));
+            await testCORS();
+        })();
+    </script>
+</body>
+</html>

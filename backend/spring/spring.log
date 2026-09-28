@@ -1,0 +1,799 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-09-27T23:47:27.403+05:30  INFO 13751 --- [CycloneSense] [           main] c.cyclonesense.CycloneSenseApplication   : Starting CycloneSenseApplication v0.0.1-SNAPSHOT using Java 17.0.9 with PID 13751 (/Users/satyendramore/CyclonekiJay/CycloneSense/backend/spring/target/Cyclone-0.0.1-SNAPSHOT.jar started by satyendramore in /Users/satyendramore/CyclonekiJay/CycloneSense/backend/spring)
+2026-09-27T23:47:27.408+05:30 DEBUG 13751 --- [CycloneSense] [           main] c.cyclonesense.CycloneSenseApplication   : Running with Spring Boot v4.0.8, Spring v7.0.9
+2026-09-27T23:47:27.409+05:30  INFO 13751 --- [CycloneSense] [           main] c.cyclonesense.CycloneSenseApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-09-27T23:47:27.937+05:30  INFO 13751 --- [CycloneSense] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-27T23:47:27.950+05:30  INFO 13751 --- [CycloneSense] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2026-09-27T23:47:28.350+05:30  INFO 13751 --- [CycloneSense] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8000 (http)
+2026-09-27T23:47:28.359+05:30  INFO 13751 --- [CycloneSense] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-27T23:47:28.359+05:30  INFO 13751 --- [CycloneSense] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-27T23:47:28.374+05:30  INFO 13751 --- [CycloneSense] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 897 ms
+2026-09-27T23:47:28.492+05:30  INFO 13751 --- [CycloneSense] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-27T23:47:28.541+05:30  INFO 13751 --- [CycloneSense] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.24.Final
+2026-09-27T23:47:28.897+05:30  INFO 13751 --- [CycloneSense] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-27T23:47:28.919+05:30  INFO 13751 --- [CycloneSense] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-27T23:47:29.043+05:30  INFO 13751 --- [CycloneSense] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:cyclonesense user=SA
+2026-09-27T23:47:29.044+05:30  INFO 13751 --- [CycloneSense] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-27T23:47:29.059+05:30  WARN 13751 --- [CycloneSense] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-27T23:47:29.072+05:30  INFO 13751 --- [CycloneSense] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:cyclonesense]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: CYCLONESENSE/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-27T23:47:29.314+05:30  INFO 13751 --- [CycloneSense] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-27T23:47:29.319+05:30  INFO 13751 --- [CycloneSense] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-27T23:47:29.383+05:30  WARN 13751 --- [CycloneSense] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-27T23:47:29.555+05:30  INFO 13751 --- [CycloneSense] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8000 (http) with context path '/'
+2026-09-27T23:47:29.568+05:30  INFO 13751 --- [CycloneSense] [           main] c.cyclonesense.CycloneSenseApplication   : Started CycloneSenseApplication in 2.507 seconds (process running for 3.121)
+2026-09-27T23:47:38.339+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-27T23:47:38.339+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-27T23:47:38.343+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-09-27T23:47:57.193+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: test_cyclone_spring.png
+2026-09-27T23:47:57.193+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Processing satellite image: test_cyclone_spring.png - forwarding to FastAPI ML service
+2026-09-27T23:47:57.453+05:30 ERROR 13751 --- [CycloneSense] [nio-8000-exec-2] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2026-09-27T23:47:57.674+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: test_cyclone_spring.png
+2026-09-27T23:48:18.654+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:48:18.762+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:48:18.976+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:48:18.976+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:48:18.976+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:48:18.977+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:48:26.790+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-27T23:48:26.790+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-27T23:48:26.835+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-27T23:48:26.844+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:48:26.844+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:49:41.611+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/alerts/dispatch - Dispatching alerts for cyclone: Cyclone Fani
+2026-09-27T23:49:41.613+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Dispatching alerts for cyclone: Cyclone Fani to 4 channels
+2026-09-27T23:50:14.439+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:14.491+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:14.552+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:14.553+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:14.565+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:14.565+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:22.462+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-amphan
+2026-09-27T23:50:22.464+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-amphan
+2026-09-27T23:50:27.175+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-27T23:50:27.176+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-27T23:50:39.034+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:39.045+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:39.094+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:39.096+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:39.163+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:39.164+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:40.066+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:40.081+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:40.107+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:40.107+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:40.123+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:40.124+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:40.879+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:40.885+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:50:40.930+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:40.936+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:50:40.930+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:50:40.936+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:51:00.863+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:51:00.869+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:51:00.923+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:51:00.923+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:51:00.923+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:51:00.923+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:51:07.807+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-27T23:51:07.808+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-27T23:51:07.861+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-27T23:51:07.866+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:51:07.866+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:51:29.455+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-27T23:51:29.457+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-27T23:51:40.514+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-27T23:51:40.517+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-27T23:51:43.999+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-27T23:51:44.003+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-27T23:51:53.035+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-27T23:51:53.036+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-27T23:51:53.062+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-27T23:51:53.070+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-27T23:51:53.070+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-27T23:52:36.830+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: test_cyclone_api.png
+2026-09-27T23:52:36.831+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Processing satellite image: test_cyclone_api.png - forwarding to FastAPI ML service
+2026-09-27T23:52:36.862+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: test_cyclone_api.png
+2026-09-27T23:52:43.544+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: test_cyclone_api.png
+2026-09-27T23:52:43.545+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: test_cyclone_api.png - forwarding to FastAPI ML service
+2026-09-27T23:52:43.558+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: test_cyclone_api.png
+2026-09-27T23:53:09.891+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: weak_cyclone.png
+2026-09-27T23:53:09.891+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Processing satellite image: weak_cyclone.png - forwarding to FastAPI ML service
+2026-09-27T23:53:09.912+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: weak_cyclone.png
+2026-09-27T23:55:09.885+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:55:09.899+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:55:09.900+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:55:10.663+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:55:10.678+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:55:10.678+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:55:19.984+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:55:19.994+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:55:19.994+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:55:20.650+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:55:20.660+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:55:20.661+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:57:13.550+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:57:13.595+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-27T23:57:13.644+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:57:13.645+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:57:13.644+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:57:13.645+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:57:19.907+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-27T23:57:19.909+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-27T23:57:19.954+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-27T23:57:19.961+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:57:19.961+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-27T23:57:51.370+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-27T23:57:51.371+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-27T23:57:51.418+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-27T23:57:51.424+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-27T23:57:51.425+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:00:09.925+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:00:09.934+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:00:09.935+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:00:10.652+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:00:10.663+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:00:10.663+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:04:48.427+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:04:48.428+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:04:48.472+05:30 ERROR 13751 --- [CycloneSense] [nio-8000-exec-6] com.cyclonesense.service.MLApiService    : ML API image prediction failed: Connection refused: localhost/127.0.0.1:8001
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: localhost/127.0.0.1:8001
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$0(ExchangeFunctions.java:139) ~[spring-webflux-7.0.9.jar!/:7.0.9]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:8001/api/v1/predict-from-image [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$0(ExchangeFunctions.java:139) ~[spring-webflux-7.0.9.jar!/:7.0.9]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4569) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:104) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:225) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:225) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:225) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:94) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:206) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:125) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:230) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:282) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:123) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:109) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:480) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:624) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:879) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:138) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:138) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1740) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:197) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:206) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:336) ~[reactor-netty-http-1.3.7.jar!/:1.3.7]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:206) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:196) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:504) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:444) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:206) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:619) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:316) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:107) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:54) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4569) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:104) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:604) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:550) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at reactor.netty.transport.TransportConnector.lambda$null$7(TransportConnector.java:263) ~[reactor-netty-core-1.3.7.jar!/:1.3.7]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:604) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:597) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:573) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:506) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:650) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:643) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:132) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:371) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:387) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+		at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at reactor.core.publisher.Mono.block(Mono.java:1773) ~[reactor-core-3.8.7.jar!/:3.8.7]
+		at com.cyclonesense.service.MLApiService.predictFromImage(MLApiService.java:73) ~[!/:0.0.1-SNAPSHOT]
+		at com.cyclonesense.service.CycloneService.processSatelliteImage(CycloneService.java:347) ~[!/:0.0.1-SNAPSHOT]
+		at com.cyclonesense.controller.CycloneController.uploadImage(CycloneController.java:38) ~[!/:0.0.1-SNAPSHOT]
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+		at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+		at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.9.jar!/:7.0.9]
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:59) ~[tomcat-embed-websocket-11.0.24.jar!/:na]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar!/:7.0.9]
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74) ~[tomcat-embed-core-11.0.24.jar!/:na]
+		at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/127.0.0.1:8001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:384) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:432) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196) ~[netty-transport-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.2.17.Final.jar!/:4.2.17.Final]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-09-28T00:04:48.481+05:30 ERROR 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : FastAPI ML service returned unsuccessful response
+2026-09-28T00:04:48.481+05:30 ERROR 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Error processing satellite image via ML service: ML prediction failed
+2026-09-28T00:09:42.786+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: test_cyclone_api.png
+2026-09-28T00:09:42.787+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: test_cyclone_api.png - forwarding to FastAPI ML service
+2026-09-28T00:09:42.815+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: test_cyclone_api.png
+2026-09-28T00:10:47.711+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:10:47.711+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:10:47.724+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:10:47.724+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:10:57.821+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:10:57.821+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:10:57.824+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:10:57.824+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:12:39.393+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:12:39.418+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:12:39.511+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:12:39.515+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:12:39.515+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:12:39.513+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:12:45.292+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:12:45.293+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:12:45.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:30:21.042+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:30:21.071+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:30:21.074+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:30:21.075+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:30:21.098+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:30:21.098+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:30:29.769+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:30:29.772+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:30:29.779+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:30:29.779+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:30:29.780+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:30:29.781+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:30:36.277+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:30:36.277+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:30:36.338+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:31:40.206+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:31:40.219+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:31:40.222+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:31:40.222+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:31:40.232+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:31:40.233+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:31:46.188+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:31:46.188+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:31:46.214+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:31:57.240+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:31:57.241+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:31:57.258+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:32:03.957+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-amphan
+2026-09-28T00:32:03.958+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-amphan
+2026-09-28T00:38:43.710+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:38:43.718+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:38:43.721+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:38:43.721+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:38:43.725+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:38:43.725+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:39:08.683+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:39:08.693+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:39:08.693+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:39:36.269+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:39:36.283+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:39:36.284+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:39:36.285+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:39:36.317+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:39:36.317+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:39:39.416+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:39:39.420+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:39:39.427+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:39:39.427+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:39:39.427+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:39:39.427+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:40:05.676+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:40:05.681+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:40:05.685+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:40:05.685+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:40:05.686+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:40:05.686+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:40:08.784+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:40:08.792+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:40:08.797+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:40:08.797+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:40:08.813+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:40:08.813+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:44:51.652+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:44:51.658+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:44:51.676+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:44:51.677+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:44:51.677+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:44:51.677+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:45:10.756+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:45:10.757+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:45:10.802+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:47:15.744+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:47:15.749+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:47:15.769+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:47:15.769+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:47:15.770+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:47:15.770+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:47:27.687+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:47:27.697+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:47:27.697+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:47:35.677+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:47:35.684+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:47:35.684+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:50:31.084+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:50:31.085+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:50:31.132+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:50:47.610+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:50:47.611+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:50:47.653+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:51:32.818+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T00:51:32.819+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T00:51:32.874+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T00:51:47.832+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:51:47.832+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:51:47.853+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:51:57.443+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T00:51:57.443+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T00:51:57.460+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T00:52:12.004+05:30  WARN 13751 --- [CycloneSense] [nio-8000-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+2026-09-28T00:52:12.022+05:30  WARN 13751 --- [CycloneSense] [nio-8000-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+2026-09-28T00:52:27.115+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T00:52:27.117+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T00:52:27.137+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T00:52:42.729+05:30  WARN 13751 --- [CycloneSense] [io-8000-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+2026-09-28T00:52:42.731+05:30  WARN 13751 --- [CycloneSense] [io-8000-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+2026-09-28T00:53:42.063+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-28T00:53:42.064+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-28T00:53:55.342+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-28T00:53:55.343+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-28T00:53:58.766+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-amphan
+2026-09-28T00:53:58.767+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-amphan
+2026-09-28T00:54:02.112+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:54:02.112+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:54:07.070+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:07.070+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:08.168+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:08.169+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:08.749+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:08.749+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:09.249+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:09.249+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:09.630+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:09.631+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:09.930+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:09.931+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:10.113+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:10.113+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:10.329+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:10.329+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:10.513+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:10.513+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:10.714+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:10.714+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:10.912+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:10.912+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:11.097+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:11.097+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:11.296+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:11.297+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:11.481+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:11.481+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:11.679+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:11.680+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:11.862+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:11.862+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.047+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.047+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.230+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.230+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.430+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.430+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.613+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.614+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.795+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.795+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:12.979+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:12.979+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:13.162+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:13.162+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:13.345+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:13.345+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:13.545+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:13.545+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:13.746+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:13.746+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:13.929+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:13.929+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:14.096+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:14.097+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:14.497+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:14.498+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:14.696+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:14.696+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:14.881+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:14.881+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:15.080+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:15.080+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:15.279+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:15.279+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:15.480+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:15.480+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:15.664+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:15.664+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:15.864+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:15.864+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:16.063+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:16.063+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:16.262+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:16.263+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:16.462+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:16.462+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:16.679+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:16.681+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:16.880+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:16.881+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:17.096+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:17.096+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:17.279+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:17.280+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:17.480+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:17.481+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:17.678+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:17.679+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:17.880+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:17.880+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:18.095+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:18.095+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:18.296+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:18.296+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:18.511+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:18.512+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:18.712+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:18.712+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:18.929+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:18.930+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:19.128+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:19.128+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:19.328+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:19.328+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:19.529+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:19.530+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:19.730+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:19.730+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:19.929+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:19.929+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.113+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.113+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.279+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.279+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.429+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.429+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.597+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.598+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.766+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.766+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:20.928+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:20.928+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:21.312+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:21.312+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:22.229+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:22.229+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:22.382+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T00:54:22.382+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T00:54:48.818+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-28T00:54:48.819+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-28T00:54:52.332+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:54:52.333+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:54:54.541+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-amphan
+2026-09-28T00:54:54.541+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-amphan
+2026-09-28T00:54:56.733+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-28T00:54:56.733+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-28T00:57:32.622+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:57:32.667+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T00:57:32.728+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:57:32.728+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T00:57:32.728+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:57:32.728+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T00:57:40.114+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T00:57:40.114+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T00:57:40.162+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T00:57:53.865+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T00:57:53.866+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T00:57:53.883+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T00:58:19.024+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T00:58:19.025+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T00:58:19.038+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T01:00:06.610+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T01:00:06.611+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T01:00:06.645+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T01:00:14.842+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T01:00:14.842+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T01:00:14.859+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T01:00:26.474+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T01:00:26.474+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T01:00:26.486+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T01:05:26.121+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T01:05:26.131+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:05:26.131+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T01:05:42.750+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/alerts/dispatch - Dispatching alerts for cyclone: Cyclone Fani
+2026-09-28T01:05:42.750+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Dispatching alerts for cyclone: Cyclone Fani to 4 channels
+2026-09-28T01:05:49.378+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-28T01:05:49.378+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-28T01:05:52.653+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-28T01:05:52.653+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-28T01:08:08.728+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-28T01:08:08.729+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-28T01:08:14.067+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-28T01:08:14.068+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-28T01:08:16.390+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-amphan
+2026-09-28T01:08:16.390+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-amphan
+2026-09-28T01:08:18.622+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:08:18.622+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T01:08:22.629+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:22.629+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:23.780+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:23.780+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:24.327+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:24.327+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:24.847+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:24.847+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:25.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:25.378+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:25.894+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:25.894+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:26.449+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:26.449+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:26.793+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:26.793+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:27.060+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:27.060+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:27.287+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:27.287+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:27.660+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:27.661+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:27.860+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:27.860+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:28.061+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:28.061+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:28.261+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:28.262+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:28.461+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:28.462+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:28.660+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:28.660+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:28.860+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:28.860+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:29.043+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:29.044+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:29.244+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:29.244+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:29.445+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:29.445+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:29.619+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:29.619+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:29.827+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:29.827+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.011+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.012+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.212+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.212+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.395+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.395+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.761+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.761+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:30.962+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:30.962+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:31.161+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:31.161+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:31.328+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:31.328+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:31.511+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:31.512+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:31.729+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:31.729+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:31.911+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:31.911+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:32.111+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:32.111+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:32.311+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:32.311+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:32.496+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:32.497+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:32.679+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:32.679+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:32.895+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:32.895+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:33.175+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:33.175+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:33.360+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:33.360+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:33.562+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:33.562+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:33.760+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:33.761+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:33.962+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:33.962+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:34.177+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:34.177+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:34.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:34.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:34.577+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:34.577+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:34.777+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:34.777+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:34.977+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:34.978+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:35.177+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:35.177+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:35.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:35.377+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:35.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:35.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:35.794+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:35.794+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:35.994+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:35.995+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:36.185+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:36.185+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:36.394+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:36.394+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:36.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:36.594+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:36.793+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:36.794+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:36.994+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:36.994+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:37.194+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:37.195+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:37.412+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:37.413+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:37.611+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:37.611+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:37.811+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:37.811+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:38.028+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:38.028+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:38.244+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:38.244+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:38.445+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:38.445+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:38.644+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:38.644+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:38.860+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:38.860+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:39.077+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:39.077+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:39.277+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:39.277+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:39.494+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:39.494+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:39.694+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:39.694+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:39.894+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:39.894+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:40.127+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:40.128+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-3] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:40.344+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:40.344+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-2] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:40.544+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:40.544+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:40.761+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:40.761+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:40.978+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:40.978+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:41.194+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:41.194+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:08:41.412+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: live-active-satellite
+2026-09-28T01:08:41.412+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: live-active-satellite
+2026-09-28T01:18:00.695+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T01:18:00.704+05:30  INFO 13751 --- [CycloneSense] [io-8000-exec-10] c.c.controller.CycloneController         : GET /api/storms - Fetching available storms
+2026-09-28T01:18:00.741+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:18:00.741+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:18:00.742+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-5] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T01:18:00.742+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T01:18:06.078+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-yaas
+2026-09-28T01:18:06.078+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-yaas
+2026-09-28T01:18:10.423+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-biparjoy
+2026-09-28T01:18:10.423+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-6] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-biparjoy
+2026-09-28T01:18:21.766+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T01:18:21.766+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T01:18:21.893+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-8] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T01:18:32.254+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone image 2.jpg
+2026-09-28T01:18:32.254+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone image 2.jpg - forwarding to FastAPI ML service
+2026-09-28T01:18:32.273+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-1] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone image 2.jpg
+2026-09-28T01:18:55.771+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.c.controller.CycloneController         : POST /api/upload-image - Uploading satellite image: cyclone.jpg
+2026-09-28T01:18:55.772+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] c.cyclonesense.service.CycloneService    : Processing satellite image: cyclone.jpg - forwarding to FastAPI ML service
+2026-09-28T01:18:55.797+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-9] com.cyclonesense.service.MLApiService    : ML API image prediction successful for file: cyclone.jpg
+2026-09-28T01:26:47.539+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:26:47.539+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.c.controller.CycloneController         : POST /api/predict/all - Running end-to-end prediction for storm: storm-fani
+2026-09-28T01:26:47.540+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-7] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
+2026-09-28T01:26:47.540+05:30  INFO 13751 --- [CycloneSense] [nio-8000-exec-4] c.cyclonesense.service.CycloneService    : Running full prediction pipeline for storm: storm-fani
