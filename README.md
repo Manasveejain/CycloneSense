@@ -267,7 +267,7 @@ CycloneSense is a research/prototype system. Predictions should **not replace of
 
 ## 👨‍💻 Author
 
-**Manasvi Jain**
+**Manasvee Jain**
 
 GitHub: https://github.com/Manasveejain/CycloneSense
 
