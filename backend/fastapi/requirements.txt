@@ -1,0 +1,30 @@
+# ── Web Framework ─────────────────────────────────────────────────────────
+fastapi==0.118.0
+uvicorn[standard]==0.37.0
+python-multipart==0.0.6
+
+# ── ML Pipeline ───────────────────────────────────────────────────────────
+joblib==1.5.2
+numpy==2.0.2
+pandas==2.3.2
+scikit-learn==1.7.2
+Pillow==10.1.0
+
+# ── Configuration ─────────────────────────────────────────────────────────
+pydantic-settings==2.11.0
+python-dotenv==1.1.1
+
+# ── Live Data Ingestion (APScheduler + HTTP) ──────────────────────────────
+apscheduler==3.10.4
+httpx==0.27.2
+aiofiles==24.1.0
+
+# ── Caching (Redis with in-process LRU fallback) ──────────────────────────
+redis==5.2.1
+
+# ── Alert Gateway (Twilio SMS + CAP XML) ──────────────────────────────────
+twilio==9.3.7
+lxml==5.3.0
+
+# ── Geospatial (convex hull, risk zones) ──────────────────────────────────
+shapely==2.0.6

@@ -1,44 +1,111 @@
 ================================================================================
-CYCLONESENSE: END-TO-END PREDICTION & ALERT SYSTEM
+CYCLONESENSE v2.0 — LIVE PIPELINE + ML PREDICTION + ALERT GATEWAY
 ================================================================================
 
-HOW TO RUN BACKEND & FRONTEND:
+HOW TO RUN:
 
 --------------------------------------------------------------------------------
-1. START THE FASTAPI BACKEND (Terminal 1):
+TERMINAL 1 — FastAPI Backend (ML + Live Ingestion + Alert Gateway)
 --------------------------------------------------------------------------------
-Open PowerShell or Command Prompt:
-
-cd "c:\Users\jainv\Downloads\MY Model"
-.\venv\Scripts\Activate.ps1
-cd cyclone_app\backend
+cd "c:\Users\jainv\Downloads\CycloneSense-main\CycloneSense-main\backend\fastapi"
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
-* The backend API will be available at: http://localhost:8000
-* Interactive Swagger Docs: http://localhost:8000/docs
+  → API:          http://localhost:8000
+  → Swagger docs: http://localhost:8000/docs
 
+  On startup the app will:
+    ✓ Connect to Redis (falls back to in-process LRU if Redis is not running)
+    ✓ Load ML models (module1–module4)
+    ✓ Start APScheduler: IMD + JTWC poll every 15 min, Satellite every 30 min
+    ✓ Run first data fetch immediately
 
 --------------------------------------------------------------------------------
-2. START THE REACT FRONTEND (Terminal 2):
+TERMINAL 2 — React Frontend
 --------------------------------------------------------------------------------
-Open a second PowerShell or Command Prompt terminal:
-
-cd "c:\Users\jainv\Downloads\MY Model\cyclone_app\frontend"
+cd "c:\Users\jainv\Downloads\CycloneSense-main\CycloneSense-main\frontend"
 npm run dev
 
-* The unified GUI dashboard will launch at: http://localhost:5173
-  (Open http://localhost:5173 in your web browser)
+  → Dashboard:    http://localhost:5173
+
+--------------------------------------------------------------------------------
+TERMINAL 3 — Spring Backend (optional — alert dispatch relay)
+--------------------------------------------------------------------------------
+cd "c:\Users\jainv\Downloads\CycloneSense-main\CycloneSense-main\backend\spring"
+.\mvnw.cmd spring-boot:run
+
+  → Spring API:   http://localhost:8080
+
+--------------------------------------------------------------------------------
+TERMINAL 4 — Redis (optional but recommended for full caching)
+--------------------------------------------------------------------------------
+  Windows:  winget install Redis.Redis  (first time only)
+            redis-server
+
+  Docker:   docker run -d -p 6379:6379 redis:7-alpine
+
+  Without Redis the app works fine using the built-in in-process LRU cache.
 
 ================================================================================
-SYSTEM CAPABILITIES IN THE UNIFIED GUI:
+ENVIRONMENT VARIABLES (.env in backend/fastapi/)
 ================================================================================
-- Storm Selector: Choose from historical Indian Ocean benchmarks (Cyclone Fani,
-  Amphan, Biparjoy, Tauktae, Michaung) or upload any custom satellite image.
-- Satellite Perception Viewer: Multi-spectral visualization across Infrared (IR),
-  Water Vapor (WV), Visible (VIS), and Microwave (PMW) bands with Eye tracking.
-- Module 1 (CNN): Real-time storm intensity & IMD classification (knots, km/h).
-- Module 2 (GRU/LSTM): Autoregressive trajectory forecasting with uncertainty cones.
-- Module 3 (GIS): Multi-criteria coastal risk classification (Red, Orange, Yellow).
-- Module 4 (XGBoost): Economic damage estimation ($M and INR Crores).
-- Module 5 (CAP Alerts): Common Alerting Protocol emergency broadcast dispatch.
+Copy .env.example → .env and fill in:
+
+  # Alert SMS gateway
+  TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  TWILIO_AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  TWILIO_FROM_NUMBER=+1XXXXXXXXXX
+  ALERT_RECIPIENTS=+91XXXXXXXXXX,+91XXXXXXXXXX   # comma-separated
+
+  # Webhook (Slack, Teams, custom)
+  ALERT_WEBHOOK_URL=https://hooks.slack.com/services/...
+
+  # Redis (leave blank to use in-process LRU)
+  REDIS_URL=redis://localhost:6379/0
+
+  # Live data sources (defaults point to public IMD/JTWC/NOAA endpoints)
+  IMD_FEED_URL=https://internal.imd.gov.in/pages/cyclone_ftp_new.php
+  JTWC_BASE_URL=https://www.metoc.navy.mil/jtwc/products/
+  INSAT_TILE_URL=https://satellite.imd.gov.in/dynamic/Bh_IR1_M_latest.jpg
+  POLL_INTERVAL_MINUTES=15
+  SATELLITE_INTERVAL_MINUTES=30
+
+================================================================================
+KEY API ENDPOINTS (all prefixed /api/v1/)
+================================================================================
+
+  INGESTION
+  GET  /ingestion/status          — Scheduler status + data freshness
+  GET  /ingestion/live            — Full live IMD/JTWC/satellite snapshot
+  POST /ingestion/refresh         — Manual on-demand refresh (?source=imd|jtwc|satellite|all)
+
+  ALERTS
+  GET  /alerts/languages          — 7 supported regional languages
+  POST /alerts/multilingual       — Generate alert text for one district (all langs)
+  POST /alerts/cap-xml            — Download CAP 1.2 XML alert document
+  POST /alerts/dispatch           — Full dispatch: CAP + Twilio SMS + Webhook
+  POST /alerts/fuzzy-ahp-risk     — Fuzzy-AHP risk scoring (Redis-cached 1 hr)
+  POST /alerts/monte-carlo-damage — Monte Carlo P10/P50/P90 loss estimates (cached 30 min)
+  GET  /alerts/cache-status       — Redis vs LRU cache stats
+
+  ML PREDICTIONS
+  POST /api/v1/predict-from-image-enhanced — Full pipeline from satellite image upload
+
+================================================================================
+SYSTEM CAPABILITIES
+================================================================================
+Module 1 (CNN/sklearn Pipeline)  — Storm intensity classification (knots, km/h)
+Module 2 (GRU/LSTM Pipeline)     — Autoregressive 24-hr trajectory forecast
+Module 3 (Fuzzy-AHP)             — Multi-criteria coastal risk scoring (Redis-cached)
+Module 4 (Monte Carlo + GBM)     — P10/P50/P90 economic damage estimation (cached)
+Module 5 (Alert Gateway)         — CAP 1.2 XML + Twilio SMS in 7 Indian languages:
+                                   Hindi · Bengali · Telugu · Tamil · Odia · Gujarati · Marathi
+
+LIVE PIPELINE
+APScheduler                      — Polls IMD advisories every 15 min
+                                 — Downloads JTWC ATCF best-track files every 15 min
+                                 — Fetches INSAT-3D/GOES-17 IR satellite tiles every 30 min
+Redis Cache                      — Fuzzy-AHP results cached 1 hour
+                                 — Monte Carlo results cached 30 min
+                                 — Ingestion payloads cached 15 min
+                                 — LRU in-process fallback if Redis unavailable
 ================================================================================
