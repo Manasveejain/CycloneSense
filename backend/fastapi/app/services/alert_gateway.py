@@ -193,7 +193,7 @@ def build_cap_xml(
         SubElement(info, "language").text    = "en-IN"
         SubElement(info, "category").text    = "Met"
         SubElement(info, "event").text       = f"{storm_name} Cyclonic Storm"
-        SubElement(info, "responseType").text = "Evacuate" if zone == "Red" else "Prepare"
+        SubElement(info, "responseType").text = "Shelter" if zone == "Red" else "Prepare"
         SubElement(info, "urgency").text     = urgency
         SubElement(info, "severity").text    = severity
         SubElement(info, "certainty").text   = cert

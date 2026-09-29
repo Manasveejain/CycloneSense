@@ -3,11 +3,10 @@ import axios from 'axios';
 import { 
   Wind, Compass, AlertOctagon, DollarSign, Bell,
   Layers, ShieldCheck, Sliders, Activity,
-  WifiOff, Map, Navigation
+  WifiOff, Map
 } from 'lucide-react';
 import WorkingMap from './WorkingMap';
 import GISMap from './GISMap';
-import EvacuationModule from './EvacuationModule';
 import CapAlertModal from './CapAlertModal';
 import IntensityChart, { STORM_TIMELINES } from './IntensityChart';
 import { usePWA, saveOfflineSnapshot, loadOfflineSnapshot } from '../hooks/usePWA';
@@ -34,9 +33,9 @@ const SAMPLE_ANALYSIS = {
   past_track: [[19.8, 85.8], [20.1, 86.0], [20.4, 86.2]],
   forecast_track: [[20.7, 86.4], [21.0, 86.6], [21.3, 86.8], [21.6, 87.0]],
   districts_risk: [
-    { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Red', risk_score: 9, distance_to_path_km: 10, estimated_damage_usd_m: 450, population_affected: 1698730, action: 'Evacuate immediately' },
-    { name: 'Khordha', state: 'Odisha', lat: 20.1, lon: 85.6, zone: 'Red', risk_score: 8, distance_to_path_km: 15, estimated_damage_usd_m: 420, population_affected: 2246341, action: 'Evacuate immediately' },
-    { name: 'Jagatsinghpur', state: 'Odisha', lat: 20.3, lon: 86.1, zone: 'Orange', risk_score: 7, distance_to_path_km: 25, estimated_damage_usd_m: 280, population_affected: 1136971, action: 'Prepare for evacuation' },
+    { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Red', risk_score: 9, distance_to_path_km: 10, estimated_damage_usd_m: 450, population_affected: 1698730, action: 'Seek immediate shelter' },
+    { name: 'Khordha', state: 'Odisha', lat: 20.1, lon: 85.6, zone: 'Red', risk_score: 8, distance_to_path_km: 15, estimated_damage_usd_m: 420, population_affected: 2246341, action: 'Seek immediate shelter' },
+    { name: 'Jagatsinghpur', state: 'Odisha', lat: 20.3, lon: 86.1, zone: 'Orange', risk_score: 7, distance_to_path_km: 25, estimated_damage_usd_m: 280, population_affected: 1136971, action: 'Prepare for emergency response' },
   ]
 };
 
@@ -46,7 +45,7 @@ export default function DashboardModern() {
   const [analysisData, setAnalysisData] = useState(SAMPLE_ANALYSIS);
   const [isLoading, setIsLoading] = useState(false);
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
-  const [activeMapTab, setActiveMapTab] = useState('gis'); // 'gis' | 'simple' | 'evacuation'
+  const [activeMapTab, setActiveMapTab] = useState('gis'); // 'gis' | 'simple'
 
   // PWA offline/update state
   const { isOnline, offlineDataAge } = usePWA();
@@ -105,11 +104,11 @@ export default function DashboardModern() {
         past_track: [[19.8, 85.8], [20.1, 86.0], [20.4, 86.2], [20.7, 86.4]],
         forecast_track: [[21.0, 86.6], [21.3, 86.8], [21.6, 87.0], [21.9, 87.2]],
         districts_risk: [
-          { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Red', risk_score: 10, distance_to_path_km: 5, estimated_damage_usd_m: 550, population_affected: 1698730, action: 'Evacuate immediately' },
-          { name: 'Khordha', state: 'Odisha', lat: 20.1, lon: 85.6, zone: 'Red', risk_score: 9, distance_to_path_km: 12, estimated_damage_usd_m: 480, population_affected: 2246341, action: 'Evacuate immediately' },
-          { name: 'Jagatsinghpur', state: 'Odisha', lat: 20.3, lon: 86.1, zone: 'Red', risk_score: 9, distance_to_path_km: 8, estimated_damage_usd_m: 420, population_affected: 1136971, action: 'Evacuate immediately' },
-          { name: 'Kendrapara', state: 'Odisha', lat: 20.5, lon: 86.4, zone: 'Orange', risk_score: 8, distance_to_path_km: 22, estimated_damage_usd_m: 320, population_affected: 1440361, action: 'Prepare for evacuation' },
-          { name: 'Bhadrak', state: 'Odisha', lat: 21.0, lon: 86.5, zone: 'Orange', risk_score: 7, distance_to_path_km: 28, estimated_damage_usd_m: 280, population_affected: 1506337, action: 'Prepare for evacuation' },
+          { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Red', risk_score: 10, distance_to_path_km: 5, estimated_damage_usd_m: 550, population_affected: 1698730, action: 'Seek immediate shelter' },
+          { name: 'Khordha', state: 'Odisha', lat: 20.1, lon: 85.6, zone: 'Red', risk_score: 9, distance_to_path_km: 12, estimated_damage_usd_m: 480, population_affected: 2246341, action: 'Seek immediate shelter' },
+          { name: 'Jagatsinghpur', state: 'Odisha', lat: 20.3, lon: 86.1, zone: 'Red', risk_score: 9, distance_to_path_km: 8, estimated_damage_usd_m: 420, population_affected: 1136971, action: 'Seek immediate shelter' },
+          { name: 'Kendrapara', state: 'Odisha', lat: 20.5, lon: 86.4, zone: 'Orange', risk_score: 8, distance_to_path_km: 22, estimated_damage_usd_m: 320, population_affected: 1440361, action: 'Prepare for emergency response' },
+          { name: 'Bhadrak', state: 'Odisha', lat: 21.0, lon: 86.5, zone: 'Orange', risk_score: 7, distance_to_path_km: 28, estimated_damage_usd_m: 280, population_affected: 1506337, action: 'Prepare for emergency response' },
           { name: 'Balasore', state: 'Odisha', lat: 21.5, lon: 86.9, zone: 'Orange', risk_score: 7, distance_to_path_km: 30, estimated_damage_usd_m: 260, population_affected: 2320529, action: 'Stay alert' },
           { name: 'Cuttack', state: 'Odisha', lat: 20.5, lon: 85.8, zone: 'Yellow', risk_score: 6, distance_to_path_km: 45, estimated_damage_usd_m: 180, population_affected: 2624470, action: 'Monitor updates' },
           { name: 'Ganjam', state: 'Odisha', lat: 19.3, lon: 85.0, zone: 'Yellow', risk_score: 5, distance_to_path_km: 55, estimated_damage_usd_m: 150, population_affected: 3520151, action: 'Monitor updates' }
@@ -135,11 +134,11 @@ export default function DashboardModern() {
         past_track: [[18.5, 84.2], [18.8, 84.5], [19.1, 84.8]],
         forecast_track: [[19.4, 85.1], [19.7, 85.4], [20.0, 85.7], [20.3, 86.0]],
         districts_risk: [
-          { name: 'South 24 Parganas', state: 'West Bengal', lat: 22.16, lon: 88.43, zone: 'Red', risk_score: 10, distance_to_path_km: 3, estimated_damage_usd_m: 620, population_affected: 8161961, action: 'Evacuate immediately' },
-          { name: 'North 24 Parganas', state: 'West Bengal', lat: 22.61, lon: 88.42, zone: 'Red', risk_score: 9, distance_to_path_km: 8, estimated_damage_usd_m: 580, population_affected: 10009781, action: 'Evacuate immediately' },
-          { name: 'Kolkata', state: 'West Bengal', lat: 22.57, lon: 88.36, zone: 'Red', risk_score: 9, distance_to_path_km: 10, estimated_damage_usd_m: 520, population_affected: 4496694, action: 'Evacuate immediately' },
-          { name: 'Howrah', state: 'West Bengal', lat: 22.58, lon: 88.31, zone: 'Orange', risk_score: 8, distance_to_path_km: 18, estimated_damage_usd_m: 390, population_affected: 4850029, action: 'Prepare for evacuation' },
-          { name: 'Hooghly', state: 'West Bengal', lat: 22.90, lon: 88.39, zone: 'Orange', risk_score: 7, distance_to_path_km: 25, estimated_damage_usd_m: 310, population_affected: 5519145, action: 'Prepare for evacuation' },
+          { name: 'South 24 Parganas', state: 'West Bengal', lat: 22.16, lon: 88.43, zone: 'Red', risk_score: 10, distance_to_path_km: 3, estimated_damage_usd_m: 620, population_affected: 8161961, action: 'Seek immediate shelter' },
+          { name: 'North 24 Parganas', state: 'West Bengal', lat: 22.61, lon: 88.42, zone: 'Red', risk_score: 9, distance_to_path_km: 8, estimated_damage_usd_m: 580, population_affected: 10009781, action: 'Seek immediate shelter' },
+          { name: 'Kolkata', state: 'West Bengal', lat: 22.57, lon: 88.36, zone: 'Red', risk_score: 9, distance_to_path_km: 10, estimated_damage_usd_m: 520, population_affected: 4496694, action: 'Seek immediate shelter' },
+          { name: 'Howrah', state: 'West Bengal', lat: 22.58, lon: 88.31, zone: 'Orange', risk_score: 8, distance_to_path_km: 18, estimated_damage_usd_m: 390, population_affected: 4850029, action: 'Prepare for emergency response' },
+          { name: 'Hooghly', state: 'West Bengal', lat: 22.90, lon: 88.39, zone: 'Orange', risk_score: 7, distance_to_path_km: 25, estimated_damage_usd_m: 310, population_affected: 5519145, action: 'Prepare for emergency response' },
           { name: 'East Midnapore', state: 'West Bengal', lat: 22.02, lon: 87.75, zone: 'Orange', risk_score: 7, distance_to_path_km: 32, estimated_damage_usd_m: 280, population_affected: 5095875, action: 'Stay alert' },
           { name: 'Nadia', state: 'West Bengal', lat: 23.47, lon: 88.56, zone: 'Yellow', risk_score: 5, distance_to_path_km: 48, estimated_damage_usd_m: 160, population_affected: 5167600, action: 'Monitor updates' }
         ],
@@ -164,10 +163,10 @@ export default function DashboardModern() {
         past_track: [[19.2, 85.5], [19.5, 85.8], [19.8, 86.1]],
         forecast_track: [[20.1, 86.4], [20.4, 86.7], [20.7, 87.0], [21.0, 87.3]],
         districts_risk: [
-          { name: 'Balasore', state: 'Odisha', lat: 21.5, lon: 86.9, zone: 'Red', risk_score: 9, distance_to_path_km: 7, estimated_damage_usd_m: 420, population_affected: 2320529, action: 'Evacuate immediately' },
-          { name: 'Bhadrak', state: 'Odisha', lat: 21.0, lon: 86.5, zone: 'Red', risk_score: 8, distance_to_path_km: 12, estimated_damage_usd_m: 380, population_affected: 1506337, action: 'Evacuate immediately' },
-          { name: 'Kendrapara', state: 'Odisha', lat: 20.5, lon: 86.4, zone: 'Orange', risk_score: 8, distance_to_path_km: 20, estimated_damage_usd_m: 340, population_affected: 1440361, action: 'Prepare for evacuation' },
-          { name: 'Jajpur', state: 'Odisha', lat: 20.85, lon: 86.33, zone: 'Orange', risk_score: 7, distance_to_path_km: 26, estimated_damage_usd_m: 280, population_affected: 1827192, action: 'Prepare for evacuation' },
+          { name: 'Balasore', state: 'Odisha', lat: 21.5, lon: 86.9, zone: 'Red', risk_score: 9, distance_to_path_km: 7, estimated_damage_usd_m: 420, population_affected: 2320529, action: 'Seek immediate shelter' },
+          { name: 'Bhadrak', state: 'Odisha', lat: 21.0, lon: 86.5, zone: 'Red', risk_score: 8, distance_to_path_km: 12, estimated_damage_usd_m: 380, population_affected: 1506337, action: 'Seek immediate shelter' },
+          { name: 'Kendrapara', state: 'Odisha', lat: 20.5, lon: 86.4, zone: 'Orange', risk_score: 8, distance_to_path_km: 20, estimated_damage_usd_m: 340, population_affected: 1440361, action: 'Prepare for emergency response' },
+          { name: 'Jajpur', state: 'Odisha', lat: 20.85, lon: 86.33, zone: 'Orange', risk_score: 7, distance_to_path_km: 26, estimated_damage_usd_m: 280, population_affected: 1827192, action: 'Prepare for emergency response' },
           { name: 'Mayurbhanj', state: 'Odisha', lat: 21.93, lon: 86.73, zone: 'Orange', risk_score: 6, distance_to_path_km: 35, estimated_damage_usd_m: 220, population_affected: 2519738, action: 'Stay alert' },
           { name: 'Jagatsinghpur', state: 'Odisha', lat: 20.3, lon: 86.1, zone: 'Yellow', risk_score: 5, distance_to_path_km: 42, estimated_damage_usd_m: 170, population_affected: 1136971, action: 'Monitor updates' },
           { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Yellow', risk_score: 4, distance_to_path_km: 50, estimated_damage_usd_m: 130, population_affected: 1698730, action: 'Monitor updates' }
@@ -193,9 +192,9 @@ export default function DashboardModern() {
         past_track: [[14.5, 72.0], [15.2, 72.4], [16.0, 72.7], [17.1, 72.5]],
         forecast_track: [[18.2, 72.3], [19.5, 72.0], [20.8, 71.8], [22.0, 71.5]],
         districts_risk: [
-          { name: 'Raigad',       state: 'Maharashtra', lat: 18.52, lon: 73.17, zone: 'Red',    risk_score: 10, distance_to_path_km: 4,  estimated_damage_usd_m: 580, population_affected: 2634200, action: 'Evacuate immediately' },
-          { name: 'Ratnagiri',    state: 'Maharashtra', lat: 17.00, lon: 73.30, zone: 'Red',    risk_score: 9,  distance_to_path_km: 10, estimated_damage_usd_m: 490, population_affected: 1612672, action: 'Evacuate immediately' },
-          { name: 'Palghar',      state: 'Maharashtra', lat: 19.70, lon: 72.77, zone: 'Orange', risk_score: 8,  distance_to_path_km: 20, estimated_damage_usd_m: 380, population_affected: 2990116, action: 'Prepare for evacuation' },
+          { name: 'Raigad',       state: 'Maharashtra', lat: 18.52, lon: 73.17, zone: 'Red',    risk_score: 10, distance_to_path_km: 4,  estimated_damage_usd_m: 580, population_affected: 2634200, action: 'Seek immediate shelter' },
+          { name: 'Ratnagiri',    state: 'Maharashtra', lat: 17.00, lon: 73.30, zone: 'Red',    risk_score: 9,  distance_to_path_km: 10, estimated_damage_usd_m: 490, population_affected: 1612672, action: 'Seek immediate shelter' },
+          { name: 'Palghar',      state: 'Maharashtra', lat: 19.70, lon: 72.77, zone: 'Orange', risk_score: 8,  distance_to_path_km: 20, estimated_damage_usd_m: 380, population_affected: 2990116, action: 'Prepare for emergency response' },
           { name: 'Thane',        state: 'Maharashtra', lat: 19.21, lon: 72.97, zone: 'Orange', risk_score: 7,  distance_to_path_km: 28, estimated_damage_usd_m: 320, population_affected: 11060148, action: 'Stay alert' },
           { name: 'Mumbai',       state: 'Maharashtra', lat: 19.07, lon: 72.87, zone: 'Yellow', risk_score: 6,  distance_to_path_km: 42, estimated_damage_usd_m: 260, population_affected: 12478447, action: 'Monitor updates' },
         ],
@@ -213,9 +212,9 @@ export default function DashboardModern() {
         past_track: [[12.5, 83.5], [12.9, 83.8], [13.3, 84.0]],
         forecast_track: [[13.8, 80.2], [14.2, 80.0], [14.7, 79.8], [15.1, 79.5]],
         districts_risk: [
-          { name: 'Chennai',       state: 'Tamil Nadu',  lat: 13.08, lon: 80.27, zone: 'Red',    risk_score: 9, distance_to_path_km: 5,  estimated_damage_usd_m: 420, population_affected: 7088000, action: 'Evacuate immediately' },
-          { name: 'Nellore',       state: 'Andhra Pradesh', lat: 14.44, lon: 79.99, zone: 'Red', risk_score: 8, distance_to_path_km: 12, estimated_damage_usd_m: 350, population_affected: 2966082, action: 'Evacuate immediately' },
-          { name: 'Chittoor',      state: 'Andhra Pradesh', lat: 13.21, lon: 79.10, zone: 'Orange', risk_score: 6, distance_to_path_km: 30, estimated_damage_usd_m: 210, population_affected: 4170468, action: 'Prepare for evacuation' },
+          { name: 'Chennai',       state: 'Tamil Nadu',  lat: 13.08, lon: 80.27, zone: 'Red',    risk_score: 9, distance_to_path_km: 5,  estimated_damage_usd_m: 420, population_affected: 7088000, action: 'Seek immediate shelter' },
+          { name: 'Nellore',       state: 'Andhra Pradesh', lat: 14.44, lon: 79.99, zone: 'Red', risk_score: 8, distance_to_path_km: 12, estimated_damage_usd_m: 350, population_affected: 2966082, action: 'Seek immediate shelter' },
+          { name: 'Chittoor',      state: 'Andhra Pradesh', lat: 13.21, lon: 79.10, zone: 'Orange', risk_score: 6, distance_to_path_km: 30, estimated_damage_usd_m: 210, population_affected: 4170468, action: 'Prepare for emergency response' },
           { name: 'Kanchipuram',   state: 'Tamil Nadu',  lat: 12.83, lon: 79.70, zone: 'Yellow', risk_score: 5, distance_to_path_km: 48, estimated_damage_usd_m: 160, population_affected: 3998252, action: 'Monitor updates' },
         ],
         summary: { red_zone_count: 2, orange_zone_count: 1, yellow_zone_count: 1, total_population_affected: 18222802, total_damage_usd_m: 1140, total_damage_inr_crores: 95 }
@@ -232,9 +231,9 @@ export default function DashboardModern() {
         past_track: [[10.5, 51.0], [11.2, 52.5], [11.8, 53.8], [12.3, 55.2]],
         forecast_track: [[12.8, 56.5], [13.0, 57.8], [13.2, 59.0], [13.1, 60.3]],
         districts_risk: [
-          { name: 'Qishn',         state: 'Al Mahrah, Yemen', lat: 15.42, lon: 51.67, zone: 'Red',    risk_score: 10, distance_to_path_km: 3,  estimated_damage_usd_m: 680, population_affected: 120000,  action: 'Evacuate immediately' },
-          { name: 'Hadbeen',       state: 'Socotra, Yemen',   lat: 12.65, lon: 54.00, zone: 'Red',    risk_score: 9,  distance_to_path_km: 8,  estimated_damage_usd_m: 540, population_affected: 60000,   action: 'Evacuate immediately' },
-          { name: 'Nishtun',       state: 'Al Mahrah, Yemen', lat: 15.81, lon: 52.20, zone: 'Orange', risk_score: 7,  distance_to_path_km: 25, estimated_damage_usd_m: 310, population_affected: 45000,   action: 'Prepare for evacuation' },
+          { name: 'Qishn',         state: 'Al Mahrah, Yemen', lat: 15.42, lon: 51.67, zone: 'Red',    risk_score: 10, distance_to_path_km: 3,  estimated_damage_usd_m: 680, population_affected: 120000,  action: 'Seek immediate shelter' },
+          { name: 'Hadbeen',       state: 'Socotra, Yemen',   lat: 12.65, lon: 54.00, zone: 'Red',    risk_score: 9,  distance_to_path_km: 8,  estimated_damage_usd_m: 540, population_affected: 60000,   action: 'Seek immediate shelter' },
+          { name: 'Nishtun',       state: 'Al Mahrah, Yemen', lat: 15.81, lon: 52.20, zone: 'Orange', risk_score: 7,  distance_to_path_km: 25, estimated_damage_usd_m: 310, population_affected: 45000,   action: 'Prepare for emergency response' },
         ],
         summary: { red_zone_count: 2, orange_zone_count: 1, yellow_zone_count: 0, total_population_affected: 225000, total_damage_usd_m: 1530, total_damage_inr_crores: 127 }
       },
@@ -250,9 +249,9 @@ export default function DashboardModern() {
         past_track: [[15.0, 72.0], [15.5, 72.3], [16.0, 72.7]],
         forecast_track: [[16.8, 73.1], [17.5, 73.4], [18.3, 73.6], [19.0, 73.8]],
         districts_risk: [
-          { name: 'Alibag',      state: 'Maharashtra', lat: 18.64, lon: 72.87, zone: 'Red',    risk_score: 9, distance_to_path_km: 3,  estimated_damage_usd_m: 360, population_affected: 962769,  action: 'Evacuate immediately' },
-          { name: 'Raigad',      state: 'Maharashtra', lat: 18.52, lon: 73.17, zone: 'Red',    risk_score: 8, distance_to_path_km: 8,  estimated_damage_usd_m: 310, population_affected: 2634200, action: 'Evacuate immediately' },
-          { name: 'Ratnagiri',   state: 'Maharashtra', lat: 17.00, lon: 73.30, zone: 'Orange', risk_score: 6, distance_to_path_km: 22, estimated_damage_usd_m: 200, population_affected: 1612672, action: 'Prepare for evacuation' },
+          { name: 'Alibag',      state: 'Maharashtra', lat: 18.64, lon: 72.87, zone: 'Red',    risk_score: 9, distance_to_path_km: 3,  estimated_damage_usd_m: 360, population_affected: 962769,  action: 'Seek immediate shelter' },
+          { name: 'Raigad',      state: 'Maharashtra', lat: 18.52, lon: 73.17, zone: 'Red',    risk_score: 8, distance_to_path_km: 8,  estimated_damage_usd_m: 310, population_affected: 2634200, action: 'Seek immediate shelter' },
+          { name: 'Ratnagiri',   state: 'Maharashtra', lat: 17.00, lon: 73.30, zone: 'Orange', risk_score: 6, distance_to_path_km: 22, estimated_damage_usd_m: 200, population_affected: 1612672, action: 'Prepare for emergency response' },
           { name: 'Sindhudurg',  state: 'Maharashtra', lat: 16.35, lon: 73.57, zone: 'Yellow', risk_score: 4, distance_to_path_km: 40, estimated_damage_usd_m: 120, population_affected: 848868,  action: 'Monitor updates' },
         ],
         summary: { red_zone_count: 2, orange_zone_count: 1, yellow_zone_count: 1, total_population_affected: 6058509, total_damage_usd_m: 990, total_damage_inr_crores: 82 }
@@ -269,10 +268,10 @@ export default function DashboardModern() {
         past_track: [[19.0, 83.5], [19.3, 83.8], [19.6, 84.1]],
         forecast_track: [[19.9, 84.4], [20.2, 84.7], [20.5, 85.0], [20.8, 85.3]],
         districts_risk: [
-          { name: 'Ganjam', state: 'Odisha', lat: 19.3, lon: 85.0, zone: 'Red', risk_score: 9, distance_to_path_km: 6, estimated_damage_usd_m: 390, population_affected: 3520151, action: 'Evacuate immediately' },
-          { name: 'Gajapati', state: 'Odisha', lat: 19.0, lon: 84.1, zone: 'Red', risk_score: 8, distance_to_path_km: 10, estimated_damage_usd_m: 350, population_affected: 577817, action: 'Evacuate immediately' },
-          { name: 'Rayagada', state: 'Odisha', lat: 19.16, lon: 83.42, zone: 'Orange', risk_score: 7, distance_to_path_km: 22, estimated_damage_usd_m: 290, population_affected: 967911, action: 'Prepare for evacuation' },
-          { name: 'Kandhamal', state: 'Odisha', lat: 20.22, lon: 84.13, zone: 'Orange', risk_score: 7, distance_to_path_km: 28, estimated_damage_usd_m: 260, population_affected: 731952, action: 'Prepare for evacuation' },
+          { name: 'Ganjam', state: 'Odisha', lat: 19.3, lon: 85.0, zone: 'Red', risk_score: 9, distance_to_path_km: 6, estimated_damage_usd_m: 390, population_affected: 3520151, action: 'Seek immediate shelter' },
+          { name: 'Gajapati', state: 'Odisha', lat: 19.0, lon: 84.1, zone: 'Red', risk_score: 8, distance_to_path_km: 10, estimated_damage_usd_m: 350, population_affected: 577817, action: 'Seek immediate shelter' },
+          { name: 'Rayagada', state: 'Odisha', lat: 19.16, lon: 83.42, zone: 'Orange', risk_score: 7, distance_to_path_km: 22, estimated_damage_usd_m: 290, population_affected: 967911, action: 'Prepare for emergency response' },
+          { name: 'Kandhamal', state: 'Odisha', lat: 20.22, lon: 84.13, zone: 'Orange', risk_score: 7, distance_to_path_km: 28, estimated_damage_usd_m: 260, population_affected: 731952, action: 'Prepare for emergency response' },
           { name: 'Puri', state: 'Odisha', lat: 19.8, lon: 85.8, zone: 'Orange', risk_score: 6, distance_to_path_km: 35, estimated_damage_usd_m: 210, population_affected: 1698730, action: 'Stay alert' },
           { name: 'Khordha', state: 'Odisha', lat: 20.1, lon: 85.6, zone: 'Yellow', risk_score: 5, distance_to_path_km: 45, estimated_damage_usd_m: 160, population_affected: 2246341, action: 'Monitor updates' },
           { name: 'Nayagarh', state: 'Odisha', lat: 20.12, lon: 85.09, zone: 'Yellow', risk_score: 4, distance_to_path_km: 52, estimated_damage_usd_m: 120, population_affected: 962789, action: 'Monitor updates' }
@@ -400,9 +399,8 @@ export default function DashboardModern() {
         {/* -- Map tab switcher -- */}
         <div className="flex items-center gap-1 bg-slate-900/60 border border-slate-700/40 rounded-xl p-1 w-fit">
           {[
-            { id: 'gis',        icon: <Map className="w-3.5 h-3.5"/>,        label: 'GIS Layers'    },
-            { id: 'simple',     icon: <Layers className="w-3.5 h-3.5"/>,     label: 'Simple Map'    },
-            { id: 'evacuation', icon: <Navigation className="w-3.5 h-3.5"/>, label: 'Evacuation'    },
+            { id: 'gis',    icon: <Map className="w-3.5 h-3.5"/>,    label: 'GIS Layers' },
+            { id: 'simple', icon: <Layers className="w-3.5 h-3.5"/>, label: 'Simple Map' },
           ].map(t => (
             <button key={t.id} onClick={() => setActiveMapTab(t.id)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all
@@ -436,14 +434,6 @@ export default function DashboardModern() {
                 stormName={storms.find(s => s.id === selectedStormId)?.name || 'Cyclone'}
                 windKt={intensity?.predicted_wind_kt}
               />
-            )}
-            {activeMapTab === 'evacuation' && (
-              <div className="w-full h-full overflow-auto">
-                <EvacuationModule
-                  districts={districts}
-                  stormName={storms.find(s => s.id === selectedStormId)?.name || 'Cyclone'}
-                />
-              </div>
             )}
           </div>
 

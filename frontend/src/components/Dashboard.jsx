@@ -175,8 +175,8 @@ export default function Dashboard() {
           risk_score: zone.risk_score,
           distance_to_path_km: zone.distance_km,
           estimated_damage_usd_m: (enhancedData.damage_assessment?.total_damage_usd_m || 0) / (enhancedData.risk_zones?.length || 1),
-          action: zone.zone === 'Red' ? 'Immediate evacuation required' : 
-                  zone.zone === 'Orange' ? 'Prepare for evacuation' : 
+          action: zone.zone === 'Red' ? 'Immediate shelter required' : 
+                  zone.zone === 'Orange' ? 'Prepare for emergency response' : 
                   'Stay alert and monitor updates'
         })) || [],
         
@@ -286,8 +286,8 @@ export default function Dashboard() {
         risk_score: riskScore,
         distance_to_path_km: distanceFromEye,
         estimated_damage_usd_m: Math.round(windSpeed * 2 / (i + 1)),
-        action: zone === 'Red' ? 'Immediate evacuation required' : 
-                zone === 'Orange' ? 'Prepare for evacuation' : 
+        action: zone === 'Red' ? 'Immediate shelter required' : 
+                zone === 'Orange' ? 'Prepare for emergency response' : 
                 'Stay alert and monitor updates'
       };
     });
@@ -721,7 +721,7 @@ export default function Dashboard() {
                         alertFilter === 'RED' ? 'bg-red-600 text-white' : 'bg-slate-800 text-red-400 hover:bg-slate-700'
                       }`}
                     >
-                      Red Evacuation ({summary?.red_zone_count || 0})
+                      Red Zone ({summary?.red_zone_count || 0})
                     </button>
                     <button
                       onClick={() => setAlertFilter('ORANGE')}

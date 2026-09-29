@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name:             'CycloneSense — AI Early Warning',
         short_name:       'CycloneSense',
-        description:      'Real-time cyclone prediction, risk heatmaps, and evacuation routing for coastal emergency response.',
+        description:      'Real-time cyclone prediction and risk heatmaps for coastal emergency response.',
         theme_color:      '#06b6d4',
         background_color: '#070d18',
         display:          'standalone',

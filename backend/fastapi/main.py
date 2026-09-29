@@ -28,6 +28,7 @@ import math
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from PIL import Image
 import numpy as np
 
@@ -464,6 +465,77 @@ async def predict_from_image_enhanced(
         import traceback
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── Satellite image endpoints ─────────────────────────────────────────────
+
+@app.get("/api/satellite/latest", tags=["Satellite"])
+async def get_latest_satellite():
+    """
+    Serve the latest cached satellite image (INSAT-3D or GOES IR).
+    Triggers a fresh fetch if no cached image exists.
+    """
+    from app.services.ingestion import live_store, job_fetch_satellite
+    import aiofiles
+
+    meta = await live_store.get("satellite_meta")
+
+    # If no cached image, trigger a fetch
+    if not meta or not meta.get("local_path"):
+        await job_fetch_satellite()
+        meta = await live_store.get("satellite_meta")
+
+    if not meta or not meta.get("local_path"):
+        raise HTTPException(status_code=503, detail="Satellite imagery temporarily unavailable")
+
+    local_path = meta["local_path"]
+    content_type = meta.get("content_type", "image/jpeg")
+
+    try:
+        async with aiofiles.open(local_path, "rb") as f:
+            image_bytes = await f.read()
+        return StreamingResponse(
+            io.BytesIO(image_bytes),
+            media_type=content_type,
+            headers={
+                "X-Satellite-Source": meta.get("source", "unknown"),
+                "X-Fetched-At": meta.get("fetched_at", ""),
+                "Cache-Control": "public, max-age=300",
+            },
+        )
+    except FileNotFoundError:
+        raise HTTPException(status_code=503, detail="Cached satellite image not found on disk")
+
+
+@app.get("/api/satellite/meta", tags=["Satellite"])
+async def get_satellite_meta():
+    """Return metadata about the latest satellite image without serving the image itself."""
+    from app.services.ingestion import live_store
+    meta = await live_store.get("satellite_meta")
+    if not meta:
+        return {"status": "no_data", "message": "No satellite data fetched yet"}
+    return {
+        "status": "ok",
+        "source": meta.get("source"),
+        "fetched_at": meta.get("fetched_at"),
+        "size_bytes": meta.get("size_bytes"),
+        "content_type": meta.get("content_type"),
+        "image_url": "/api/satellite/latest",
+    }
+
+
+@app.post("/api/satellite/refresh", tags=["Satellite"])
+async def refresh_satellite():
+    """Force a fresh satellite image fetch from INSAT-3D / GOES."""
+    from app.services.ingestion import job_fetch_satellite, live_store
+    await job_fetch_satellite()
+    meta = await live_store.get("satellite_meta")
+    return {
+        "status": "refreshed",
+        "source": meta.get("source") if meta else None,
+        "fetched_at": meta.get("fetched_at") if meta else None,
+        "size_bytes": meta.get("size_bytes") if meta else None,
+    }
 
 
 if __name__ == "__main__":

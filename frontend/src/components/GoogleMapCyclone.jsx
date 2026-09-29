@@ -346,7 +346,7 @@ export default function GoogleMapCyclone({
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-red-500/40 border border-red-500"></span>
-            <span className="text-slate-300 font-medium">Red Zone (Evacuate)</span>
+            <span className="text-slate-300 font-medium">Red Zone (Critical)</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-orange-500/40 border border-orange-500"></span>
